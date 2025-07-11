@@ -1,0 +1,150 @@
+/* SuisseIntl */
+
+@font-face {
+  font-family: "SuisseIntl";
+  src: url("./assets/fonts/fonnts.com-Suisse_Intl_Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SuisseIntl";
+  src: url("/assets/fonts/fonnts.com-Suisse_Intl_Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SPACE GROTESK */
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "SuisseIntl", "Open Sans", sans-serif;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 50px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 42px;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 38px;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 32px;
+}
+
+p,
+a,
+ul,
+li,
+button {
+  font-family: "SpaceGrotesk", "Open Sans", sans-serif;
+  text-wrap: balance;
+  font-size: 18px;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.accordion-item p {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+  transition: height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+.accordion-item p.accordion-paragraph-active {
+  opacity: 1;
+  margin-bottom: 22px;
+}
+
+.accordion-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.accordion-line.fill::after {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  h2 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  h4 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+}
