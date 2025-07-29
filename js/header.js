@@ -101,7 +101,7 @@ mobileMenuOpen.addEventListener("click", () => {
       if (menu) {
         const isOpen = menu.classList.contains("open"); // проверяем состояние
         const allMenu = document.querySelectorAll("[data-submenu]");
-        allMenu.forEach((m) => m.classList.remove("open", "my-6"));
+        allMenu.forEach((m) => m.classList.remove("open", "mt-6"));
 
         // Сбрасываем ротацию иконок у всех
         productsMenu.forEach((btn) => {
@@ -117,22 +117,6 @@ mobileMenuOpen.addEventListener("click", () => {
         }
       }
     });
-  });
-
-  // Открываем только первую вложенную категорию
-  const innerSubmenus = document.querySelectorAll("[data-inner-submenu]");
-  const innerIcons = document.querySelectorAll(
-    "[data-inner-toggle] svg[data-icon]"
-  );
-
-  innerSubmenus.forEach((submenu, index) => {
-    submenu.classList.remove("open");
-    if (index === 0) submenu.classList.add("open");
-  });
-
-  innerIcons.forEach((icon, index) => {
-    icon.classList.remove("rotate-180");
-    if (index === 0) icon.classList.add("rotate-180");
   });
 });
 
