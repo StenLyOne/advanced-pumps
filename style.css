@@ -126,6 +126,18 @@ button {
   width: 100%;
 }
 
+.transition-submenu {
+  transition: all 0.3s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.transition-submenu.open {
+  max-height: 1000px; /* должно быть больше, чем высота самого большого сабменю */
+  opacity: 1;
+}
+
 @media (max-width: 767px) {
   h1 {
     font-size: 32px;
