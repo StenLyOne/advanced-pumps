@@ -1,8 +1,10 @@
-document.querySelectorAll("#desktop-menu > .group").forEach((group) => {
+document.querySelectorAll("#desktop-menu > [data-menu]").forEach((group) => {
   const submenu = group.querySelector(".submenu");
+  const btn = group.querySelector("button");
   let timeout;
 
   group.addEventListener("mouseover", () => {
+    btn.classList.add("text-accent");
     clearTimeout(timeout);
     submenu.classList.add("open");
   });
@@ -10,33 +12,48 @@ document.querySelectorAll("#desktop-menu > .group").forEach((group) => {
   group.addEventListener("mouseout", (e) => {
     if (group.contains(e.relatedTarget)) return;
     timeout = setTimeout(() => submenu.classList.remove("open"), 100);
+
+    btn.classList.remove("text-accent");
   });
 });
 
 const items = document.querySelectorAll("#categories [data-sub]");
-
 const submenus = document.querySelectorAll("[data-target]");
-
 const secondItems = document.querySelectorAll("[data-sub-second]");
 
 function showSubmenu(target) {
-  submenus.forEach((el) => {
-    el.classList.remove("open");
-    if (el.dataset.target === target) {
-      el.classList.add("open");
+  // Находим подменю, если есть
+  const currentSubmenu = [...submenus].find(
+    (el) => el.dataset.target === target
+  );
+
+  // Если сабменю нет — ищем контейнер по item'у
+  const fallbackItem = [...items].find((el) => el.dataset.sub === target);
+  const container =
+    currentSubmenu?.closest("[data-menu-container]") ||
+    fallbackItem?.closest("[data-menu-container]");
+
+  if (!container) return; // вообще ничего не нашли — выходим
+
+  // Закрываем соседние подменю
+  const siblings = container.querySelectorAll("[data-target]");
+  siblings.forEach((el) => {
+    if (el !== currentSubmenu) {
+      el.classList.remove("open");
     }
   });
 
-  items.forEach((el) => {
-    el.classList.remove("bg-gray-200", "font-semibold");
-    const svg = el.querySelector("svg");
-    if (svg) {
-      //   svg.classList.remove("text-accent");
-    }
+  // Открываем текущее подменю, если есть
+  if (currentSubmenu) {
+    currentSubmenu.classList.add("open");
+  }
 
+  // Обновляем подсветку айтемов только в пределах container
+  const itemsButtons = container.querySelectorAll("[data-sub]");
+  itemsButtons.forEach((el) => {
+    el.classList.remove("bg-gray-200", "font-semibold");
     if (el.getAttribute("data-sub") === target) {
       el.classList.add("bg-gray-200", "font-semibold");
-      //   if (svg) svg.classList.add("text-accent");
     }
   });
 }
@@ -77,54 +94,72 @@ items.forEach((item) => {
   });
 });
 
+showSubmenu("air");
 showSubmenu("Pump Brands");
-setSecondActive();
 
 // MOB MENU
 
-// Тогглы первого уровня (Products, Brands и т.п.)
 const mobileMenu = document.getElementById("mobile-menu-overlay");
-const mobileMenuOpen = document.getElementById("mobile-toggle");
+const mobileMenuToggle = document.getElementById("mobile-toggle");
 const mobileMenuClose = document.getElementById("mobile-menu-close");
+const productsMenu = document.querySelectorAll("[data-toggle]");
+const allSubmenus = document.querySelectorAll("[data-submenu]");
+const burgerIcon = document.getElementById("nav-icon4");
 
-mobileMenuOpen.addEventListener("click", () => {
-  mobileMenu.classList.remove("hidden");
+mobileMenuToggle.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.contains("-translate-y-0");
 
-  // Открываем секцию Products
-  const productsMenu = document.querySelectorAll("[data-toggle]");
+  // Анимация бургера
+  burgerIcon.classList.toggle("open");
 
-  productsMenu.forEach((ele) => {
-    ele.addEventListener("click", () => {
-      const target = ele.getAttribute("data-toggle");
-      const menu = document.querySelector(`[data-submenu="${target}"]`);
+  if (isOpen) {
+    // Закрываем
+    mobileMenu.classList.remove("-translate-y-0");
+    mobileMenu.classList.add("-translate-y-full");
+  } else {
+    // Открываем
+    mobileMenu.classList.remove("-translate-y-full");
+    mobileMenu.classList.add("-translate-y-0");
+  }
 
-      if (menu) {
-        const isOpen = menu.classList.contains("open"); // проверяем состояние
-        const allMenu = document.querySelectorAll("[data-submenu]");
-        allMenu.forEach((m) => m.classList.remove("open", "mt-6"));
-
-        // Сбрасываем ротацию иконок у всех
-        productsMenu.forEach((btn) => {
-          const icon = btn.querySelector("svg[data-icon]");
-          icon?.classList.remove("rotate-180");
-        });
-
-        // Если оно было закрыто — открываем и вращаем иконку
-        if (!isOpen) {
-          menu.classList.add("open", "mt-6");
-          const icon = ele.querySelector("svg[data-icon]");
-          icon?.classList.add("rotate-180");
-        }
-      }
+  // Сброс сабменю при закрытии
+  if (isOpen) {
+    allSubmenus.forEach((m) => m.classList.remove("open", "mt-6"));
+    productsMenu.forEach((btn) => {
+      const icon = btn.querySelector("svg[data-icon]");
+      icon?.classList.remove("rotate-180");
     });
+  }
+});
+
+// Тогглы первого уровня (Products, Brands и т.п.)
+productsMenu.forEach((ele) => {
+  ele.addEventListener("click", () => {
+    const target = ele.getAttribute("data-toggle");
+    const menu = document.querySelector(`[data-submenu="${target}"]`);
+
+    if (!menu) return;
+
+    const isOpen = menu.classList.contains("open");
+
+    // Закрываем все подменю
+    allSubmenus.forEach((m) => m.classList.remove("open", "mt-6"));
+    // Сбрасываем иконки
+    productsMenu.forEach((btn) => {
+      const icon = btn.querySelector("svg[data-icon]");
+      icon?.classList.remove("rotate-180");
+    });
+
+    // Если это меню было закрыто — открываем
+    if (!isOpen) {
+      menu.classList.add("open", "mt-6");
+      const icon = ele.querySelector("svg[data-icon]");
+      icon?.classList.add("rotate-180");
+    }
   });
 });
 
-mobileMenuClose.addEventListener("click", () => {
-  mobileMenu.classList.add("hidden");
-});
-
-// Тогглы первой вложенности (Air, Pumps, etc.)
+// Тогглы второй вложенности (Air, Pumps, etc.)
 document.querySelectorAll("[data-inner-toggle]").forEach((toggle) => {
   toggle.addEventListener("click", () => {
     const target = toggle.getAttribute("data-inner-toggle");
@@ -139,7 +174,7 @@ document.querySelectorAll("[data-inner-toggle]").forEach((toggle) => {
       .querySelectorAll("[data-inner-toggle] svg[data-icon]")
       .forEach((icon) => icon.classList.remove("rotate-180"));
 
-    // Если клик был по уже открытой — не открываем снова (т.е. просто закрыли всё)
+    // Если клик был по уже открытой — не открываем снова
     if (!isOpen) {
       submenu.classList.add("open");
       const icon = toggle.querySelector("svg[data-icon]");
