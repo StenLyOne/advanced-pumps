@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./../style.css" />
+
+    <style type="text/tailwindcss">
+      @theme {
+        --color-accent: #ce2926;
+        --color-black: #000000;
+        --color-white: #fff;
+        --color-hover: #fd4d49;
+        --color-gray: #535353;
+        --color-light-gray: #f9f9f9;
+        --color-light-gray: #f9f9f9;
+        --color-semi-gray: #f2f2f2;
+        --shadow-classic: 0px 24px 24px -12px rgba(14, 63, 126, 0.04),
+          0px 12px 12px -6px rgba(14, 63, 126, 0.04),
+          0px 6px 3px 0px rgba(42, 51, 70, 0.04),
+          0px 3px 3px -1.5px rgba(42, 51, 70, 0.04),
+          0px 1px 1px 0px rgba(42, 51, 69, 0.04),
+          0px 0px 0px 1px rgba(14, 63, 126, 0.04);
+        --shadow-classic-hover: 0px 24px 24px -12px rgba(14, 63, 126, 0.08),
+          0px 12px 12px -6px rgba(14, 63, 126, 0.08),
+          0px 6px 3px 0px rgba(42, 51, 70, 0.08),
+          0px 3px 3px -1.5px rgba(42, 51, 70, 0.08),
+          0px 1px 1px 0px rgba(42, 51, 69, 0.08),
+          0px 0px 0px 1px rgba(14, 63, 126, 0.08);
+      }
+    </style>
+    <style>
+      .submenu {
+        display: none;
+      }
+      .submenu.open {
+        display: flex;
+      }
+      .sub-submenu {
+        display: none;
+      }
+      .sub-submenu.open {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- { HEADER } -->
+
+    <header class="sticky top-0 z-[1001] border-b bg-white">
+      <div
+        class="relative mx-auto px-4 gap-2 md:px-10 py-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <div class="flex items-center">
+          <img src="/assets/header/logo.png" alt="Logo" class="h-10 mr-3" />
+          <span class="text-lg font-semibold"></span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <nav
+          class="hidden lg:flex items-center space-x-6 text-sm z-100"
+          id="desktop-menu"
+        >
+          <!-- PRODUCTS -->
+          <div class="relative group" data-menu="products">
+            <button class="cursor-pointer">Products</button>
+            <div
+              class="submenu absolute left-1/2 -translate-x-1/2 flex top-full left-0 bg-white px-4 py-5 z-50 flex w-full max-w-[700px] min-w-[600px] shadow-classic rounded-[6px]"
+              data-menu-container
+            >
+              <!-- MENU -->
+              <ul class="w-1/2 space-y-1 pr-4 border-r" id="categories">
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="air"
+                >
+                  <a href="">Air Compressor</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/air-compressor.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="motors"
+                >
+                  <a href="">Electric Motors</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/electric-motors.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="pumps"
+                >
+                  <a href="">Pumps</a>
+                  <img class="w-7 h-7" src="/assets/header/pumps.png" alt="" />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="centrifugal"
+                >
+                  <a href="">Centrifugal</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/centrifugal.png"
+                    alt=""
+                  />
+                </li>
+              </ul>
+
+              <!-- Right column: subcategories -->
+              <div class="w-1/2 pl-4">
+                <!-- AIR COMPRESSOR -->
+                <ul
+                  class="sub-submenu space-y-2 text-gray-600"
+                  data-target="air"
+                >
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Air Dryer"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Air Dryers</a
+                    >
+                  </li>
+
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Oil-less Air Compressors"
+                  >
+                    <a class="!text-[16px]" href="#"
+                      >Oil-less Air Compressors</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Piston Compressors"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Piston Compressors</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Rotary Screw Compressors"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Rotary Screw Compressors</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Rotary Vane Compressors"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Rotary Vane Compressors</a
+                    >
+                  </li>
+                </ul>
+
+                <!-- ELECTRIC MOTORS -->
+                <ul
+                  class="sub-submenu space-y-1 text-gray-600"
+                  data-target="motors"
+                >
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="General Purpose"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >General Purpose</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="HVAC Motors"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >HVAC Motors</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Explosion Proof"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Explosion Proof</a
+                    >
+                  </li>
+                </ul>
+
+                <!-- CENTRIFUGAL -->
+                <ul
+                  class="sub-submenu space-y-1 text-gray-600"
+                  data-target="centrifugal"
+                >
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="End-Suction"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >End-Suction</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="In-Line"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >In-Line</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Horizontal Multistage"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Horizontal Multistage</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Vertical Multistage"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Vertical Multistage</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Self-Priming"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Self-Priming</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Submersible"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Submersible</a
+                    >
+                  </li>
+                </ul>
+
+                <!-- PUMPS -->
+                <ul
+                  class="sub-submenu space-y-1 text-gray-600"
+                  data-target="pumps"
+                >
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="AODD Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >AODD Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Piston / Plunger Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Piston / Plunger Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Gear/ Lobe Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Gear/ Lobe Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Dosing / Metering Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Dosing / Metering Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Progressing Cavity Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Progressing Cavity Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Regenerative Turbine Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Regenerative Turbine Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Flexible Impeller Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Flexible Impeller Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Sliding Vane Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Sliding Vane Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Screw Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Screw Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Magnetic Drive Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Magnetic Drive Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Pump Part"
+                  >
+                    <a href="">Pump Parts</a>
+                    <img
+                      class="w-7 h-7"
+                      src="/assets/header/pump-parts.png"
+                      alt=""
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANDS -->
+          <div class="relative group" data-menu="brands">
+            <button class="cursor-pointer">Brands</button>
+            <div
+              class="submenu absolute left-1/2 -translate-x-1/2 flex top-full left-0 bg-white px-4 py-5 z-50 flex w-full max-w-[700px] min-w-[700px] shadow-classic rounded-[6px]"
+              data-menu-container
+            >
+              <ul class="w-1/2 space-y-1 pr-4 border-r" id="categories">
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Pump Brands"
+                >
+                  <a href="">Pump Brands</a>
+                  <img class="w-7 h-7" src="/assets/header/pumps.png" alt="" />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Electric Motors Brands"
+                >
+                  <a href="">Electric Motors Brands</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/electric-motors.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Air Compressor Brands"
+                >
+                  <a href="">Air Compressor Brands</a>
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_1374_25219)">
+                      <path
+                        d="M54.223 24.7819C55.9087 23.7403 57.1471 22.1092 57.6974 20.2055C58.2478 18.3019 58.0709 16.2616 57.201 14.4811C56.3312 12.7006 54.8305 11.3071 52.9906 10.5712C51.1507 9.83527 49.103 9.80958 47.2452 10.4991L33.8159 13.0171L33.8109 13.0191C32.7861 13.0665 31.8187 13.5063 31.1093 14.2474C30.3998 14.9885 30.0026 15.9741 30 17V24H25V22H28C28.1584 21.9999 28.3146 21.9622 28.4556 21.8899C28.5966 21.8177 28.7184 21.713 28.811 21.5844C28.9037 21.4559 28.9645 21.3072 28.9884 21.1506C29.0123 20.994 28.9987 20.8339 28.9487 20.6836L27.3875 16H28C28.1584 15.9999 28.3146 15.9622 28.4556 15.8899C28.5966 15.8177 28.7184 15.713 28.811 15.5844C28.9037 15.4559 28.9645 15.3072 28.9884 15.1506C29.0123 14.994 28.9987 14.8339 28.9487 14.6836L26.9487 8.6836C26.8823 8.48451 26.755 8.31135 26.5847 8.18866C26.4144 8.06597 26.2099 7.99997 26 8H14C13.7901 7.99997 13.5856 8.06597 13.4153 8.18866C13.245 8.31135 13.1177 8.48451 13.0513 8.6836L11.0513 14.6836C11.0013 14.8339 10.9877 14.994 11.0116 15.1506C11.0355 15.3072 11.0963 15.4559 11.189 15.5844C11.2816 15.713 11.4034 15.8177 11.5444 15.8899C11.6854 15.9622 11.8416 15.9999 12 16H12.6125L11.2791 20H8V3C7.99998 2.73479 7.89462 2.48045 7.70708 2.29292C7.51955 2.10538 7.26521 2.00002 7 2H3C2.73479 2.00002 2.48045 2.10538 2.29292 2.29292C2.10538 2.48045 2.00002 2.73479 2 3V7C2.00002 7.26521 2.10538 7.51955 2.29292 7.70708C2.48045 7.89462 2.73479 7.99998 3 8H6V21C6.00002 21.2652 6.10538 21.5196 6.29292 21.7071C6.48045 21.8946 6.73479 22 7 22H15V24H14C10.8185 24.0036 7.76839 25.2691 5.51874 27.5187C3.26909 29.7684 2.00364 32.8185 2 36V42C2.00469 45.0182 3.14578 47.924 5.19613 50.1389C7.24648 52.3538 10.0557 53.7154 13.0646 53.9526C12.3792 54.8209 12.0044 55.8938 12 57C12 58.3261 12.5268 59.5979 13.4645 60.5355C14.4021 61.4732 15.6739 62 17 62C18.3261 62 19.5979 61.4732 20.5355 60.5355C21.4732 59.5979 22 58.3261 22 57C21.9962 55.9146 21.6358 54.8606 20.9744 54H43.0256C42.3642 54.8606 42.0038 55.9146 42 57C42 58.3261 42.5268 59.5979 43.4645 60.5355C44.4021 61.4732 45.6739 62 47 62C48.3261 62 49.5979 61.4732 50.5355 60.5355C51.4732 59.5979 52 58.3261 52 57C51.9956 55.8938 51.6208 54.8209 50.9354 53.9526C53.9443 53.7154 56.7535 52.3538 58.8039 50.1389C60.8542 47.924 61.9953 45.0182 62 42V36C61.9958 33.5617 61.2495 31.1824 59.8603 29.1786C58.4711 27.1747 56.5049 25.6412 54.223 24.7819ZM4 4H6V6H4V4ZM38 17C37.996 16.0631 37.66 15.1579 37.0518 14.4452L43.6026 13.2169C42.6901 14.4268 42.1425 15.8724 42.0242 17.3832C41.906 18.8941 42.2221 20.4072 42.9353 21.7444L38 20.2021V17ZM43.447 24H38V22.2978L43.447 24ZM56 18C55.9978 19.5673 55.3827 21.0716 54.2862 22.1915C53.1897 23.3114 51.6986 23.9581 50.1317 23.9933L46.4883 22.8548C45.618 22.2279 44.932 21.3788 44.502 20.3961C44.0721 19.4134 43.914 18.3333 44.0443 17.2687C44.1746 16.204 44.5885 15.1939 45.2427 14.3439C45.8969 13.4939 46.7675 12.8353 47.7633 12.4368L50.0732 12.0037C51.6508 12.0241 53.1569 12.6646 54.266 13.7867C55.375 14.9088 55.9979 16.4223 56 18ZM34 15C34.3956 15 34.7822 15.1173 35.1111 15.3371C35.44 15.5568 35.6964 15.8692 35.8478 16.2346C35.9991 16.6001 36.0387 17.0022 35.9616 17.3902C35.8844 17.7781 35.6939 18.1345 35.4142 18.4142C35.1345 18.6939 34.7781 18.8844 34.3902 18.9616C34.0022 19.0387 33.6001 18.9991 33.2346 18.8478C32.8692 18.6964 32.5568 18.44 32.3371 18.1111C32.1173 17.7822 32 17.3956 32 17C32.0005 16.4697 32.2114 15.9613 32.5864 15.5864C32.9613 15.2114 33.4697 15.0005 34 15ZM32 20.4435C32.5406 20.7594 33.1485 20.9423 33.7737 20.9771L36 21.6728V24H32V20.4435ZM14.7207 10H25.2793L26.6128 14H13.3872L14.7207 10ZM13.3872 20L14.7207 16H25.2793L26.6128 20H13.3872ZM17 22H23V24H17V22ZM20 57C20 57.5933 19.8241 58.1734 19.4944 58.6667C19.1648 59.1601 18.6962 59.5446 18.1481 59.7716C17.5999 59.9987 16.9967 60.0581 16.4147 59.9424C15.8328 59.8266 15.2982 59.5409 14.8787 59.1213C14.4591 58.7018 14.1734 58.1672 14.0576 57.5853C13.9419 57.0033 14.0013 56.4001 14.2284 55.852C14.4554 55.3038 14.8399 54.8352 15.3333 54.5056C15.8266 54.1759 16.4067 54 17 54C17.7954 54.0009 18.5579 54.3172 19.1204 54.8796C19.6828 55.4421 19.9991 56.2046 20 57ZM47 60C46.4067 60 45.8266 59.8241 45.3333 59.4944C44.8399 59.1648 44.4554 58.6962 44.2284 58.148C44.0013 57.5999 43.9419 56.9967 44.0576 56.4147C44.1734 55.8328 44.4591 55.2982 44.8787 54.8787C45.2982 54.4591 45.8328 54.1734 46.4147 54.0576C46.9967 53.9419 47.5999 54.0013 48.148 54.2284C48.6962 54.4554 49.1648 54.8399 49.4944 55.3333C49.8241 55.8266 50 56.4067 50 57C49.9991 57.7954 49.6828 58.5579 49.1204 59.1204C48.5579 59.6828 47.7954 59.9991 47 60ZM60 42C59.9971 44.6513 58.9426 47.1931 57.0678 49.0678C55.1931 50.9426 52.6513 51.9971 50 52H14C11.3487 51.9971 8.80691 50.9425 6.93218 49.0678C5.05746 47.1931 4.00294 44.6513 4 42V36C4.00294 33.3487 5.05746 30.8069 6.93218 28.9322C8.80691 27.0575 11.3487 26.0029 14 26H49.9973L50.0005 26.0005L50.0027 26.0001C52.6535 26.0038 55.1946 27.0586 57.0687 28.9332C58.9429 30.8078 59.997 33.3492 60 36V42Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M50 14C49.2089 14 48.4355 14.2346 47.7777 14.6741C47.1199 15.1136 46.6072 15.7384 46.3045 16.4693C46.0017 17.2002 45.9225 18.0044 46.0769 18.7804C46.2312 19.5563 46.6122 20.269 47.1716 20.8284C47.731 21.3878 48.4437 21.7688 49.2196 21.9231C49.9956 22.0775 50.7998 21.9983 51.5307 21.6955C52.2616 21.3928 52.8864 20.8801 53.3259 20.2223C53.7654 19.5645 54 18.7911 54 18C53.9988 16.9395 53.577 15.9228 52.8271 15.1729C52.0772 14.423 51.0605 14.0012 50 14ZM50 20C49.6044 20 49.2178 19.8827 48.8889 19.6629C48.56 19.4432 48.3036 19.1308 48.1522 18.7654C48.0009 18.3999 47.9613 17.9978 48.0384 17.6098C48.1156 17.2219 48.3061 16.8655 48.5858 16.5858C48.8655 16.3061 49.2219 16.1156 49.6098 16.0384C49.9978 15.9613 50.3999 16.0009 50.7654 16.1522C51.1308 16.3036 51.4432 16.56 51.6629 16.8889C51.8827 17.2178 52 17.6044 52 18C51.9995 18.5303 51.7886 19.0387 51.4136 19.4136C51.0387 19.7886 50.5303 19.9995 50 20Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M47 32H17C16.7348 32 16.4805 32.1054 16.2929 32.2929C16.1054 32.4805 16 32.7348 16 33V43C16 43.2652 16.1054 43.5195 16.2929 43.7071C16.4805 43.8946 16.7348 44 17 44H47C47.2652 44 47.5195 43.8946 47.7071 43.7071C47.8946 43.5195 48 43.2652 48 43V33C48 32.7348 47.8946 32.4805 47.7071 32.2929C47.5195 32.1054 47.2652 32 47 32ZM46 42H18V34H46V42Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M21 46H17C16.7348 46 16.4804 46.1054 16.2929 46.2929C16.1054 46.4804 16 46.7348 16 47C16 47.2652 16.1054 47.5196 16.2929 47.7071C16.4804 47.8946 16.7348 48 17 48H21C21.2652 48 21.5196 47.8946 21.7071 47.7071C21.8946 47.5196 22 47.2652 22 47C22 46.7348 21.8946 46.4804 21.7071 46.2929C21.5196 46.1054 21.2652 46 21 46Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M29 46H25C24.7348 46 24.4804 46.1054 24.2929 46.2929C24.1054 46.4804 24 46.7348 24 47C24 47.2652 24.1054 47.5196 24.2929 47.7071C24.4804 47.8946 24.7348 48 25 48H29C29.2652 48 29.5196 47.8946 29.7071 47.7071C29.8946 47.5196 30 47.2652 30 47C30 46.7348 29.8946 46.4804 29.7071 46.2929C29.5196 46.1054 29.2652 46 29 46Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M13 29C9.69141 29 7 32.1401 7 36C7 36.2652 7.10536 36.5196 7.29289 36.7071C7.48043 36.8946 7.73478 37 8 37C8.26522 37 8.51957 36.8946 8.70711 36.7071C8.89464 36.5196 9 36.2652 9 36C9 33.2432 10.7944 31 13 31C13.2652 31 13.5196 30.8946 13.7071 30.7071C13.8946 30.5196 14 30.2652 14 30C14 29.7348 13.8946 29.4804 13.7071 29.2929C13.5196 29.1054 13.2652 29 13 29Z"
+                        fill="currentColor"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1374_25219">
+                        <rect width="64" height="64" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </li>
+              </ul>
+
+              <!-- Right column: subcategories -->
+              <div class="w-1/2 pl-4">
+                <!-- PUMPS BRANDS -->
+                <ul
+                  class="sub-submenu space-y-1 text-gray-600"
+                  data-target="Pump Brands"
+                >
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Barnes Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Barnes Pumps</a
+                    >
+                  </li>
+
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Bell and Gossett Pumps"
+                  >
+                    <a class="!text-[16px]" href="#">Bell and Gossett Pumps</a>
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Bowie Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Bowie Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Burks Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Burks Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Grundfos Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Grundfos Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Gusher Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Gusher Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Taco Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Taco Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Travaini Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Travaini Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Weinman Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Weinman Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Yamada Pumps"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Yamada Pumps</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Other Pump Brands"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Other Pump Brands</a
+                    >
+                  </li>
+                </ul>
+
+                <!-- ELECTRIC MOTORS BRANDS-->
+                <ul
+                  class="sub-submenu space-y-1 text-gray-600"
+                  data-target="Electric Motors Brands"
+                >
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Baldor Electric Motors"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Baldor Electric Motors</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="WEG"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#">WEG</a>
+                  </li>
+                </ul>
+
+                <!-- AIR COMPRESSOR BRANDS -->
+                <ul
+                  class="sub-submenu space-y-1 text-gray-600"
+                  data-target="Air Compressor Brands"
+                >
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Champion"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Champion</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Hertz"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#">Hertz</a>
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Saylor Beall Air Compressors"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Saylor Beall Air Compressors</a
+                    >
+                  </li>
+                  <li
+                    class="flex gap-2 group px-5 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    data-sub-second="Other Air Compressor Brands"
+                  >
+                    <a class="!text-[16px] whitespace-nowrap" href="#"
+                      >Other Air Compressor Brands</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maintenance & Repair -->
+          <div class="relative group" data-menu="Maintenance & Repair">
+            <button class="cursor-pointer">Maintenance & Repair</button>
+            <div
+              class="submenu absolute left-1/2 -translate-x-1/2 top-full left-0 bg-white px-4 py-5 z-50 flex w-max max-w-[600px] min-w-[600px] shadow-classic rounded-[6px]"
+              data-menu-container
+            >
+              <ul class="flex justify-center flex-wrap gap-1" id="categories">
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="General Pump Repair "
+                >
+                  <a href="">General Pump Repair </a>
+                  <img class="w-7 h-7" src="/assets/header/repair.png" alt="" />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Sewage Ejector Pump Service "
+                >
+                  <a href="">Sewage Ejector Pump Service</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/services.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Sewage Grinder Pump Maintenance"
+                >
+                  <a href="">Sewage Grinder Pump Maintenance</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/maintenance.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Sewage Grinder Pump Repairs"
+                >
+                  <a href="">Sewage Grinder Pump Repairs</a>
+                  <img class="w-7 h-7" src="/assets/header/repair.png" alt="" />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Lift Station Maintenance"
+                >
+                  <a href="">Lift Station Maintenance</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/maintenance.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Lift Station Repair "
+                >
+                  <a href="">Lift Station Repair </a>
+                  <img class="w-7 h-7" src="/assets/header/repair.png" alt="" />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Lift Station Services "
+                >
+                  <a href="">Lift Station Services </a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/services.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Lift Station Installation"
+                >
+                  <a href="">Lift Station Installation</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Installation.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Circulator Pump Repair & Service"
+                >
+                  <a href="">Circulator Pump Repair & Service</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/services.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Electric Motor Repair & Service"
+                >
+                  <a href="">Electric Motor Repair & Service</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/services.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Air Compressor Service & Repair "
+                >
+                  <a href="">Air Compressor Service & Repair </a>
+                  <img class="w-7 h-7" src="/assets/header/repair.png" alt="" />
+                </li>
+                <li
+                  class="flex w-full max-w-70 gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Pump Preventative Maintenance"
+                >
+                  <a href="">Pump Preventative Maintenance</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/maintenance.png"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- INDUSTRIES -->
+          <div class="relative group" data-menu="Industries">
+            <button class="cursor-pointer">Industries</button>
+            <div
+              class="submenu absolute left-1/2 -translate-x-1/2 flex top-full left-0 bg-white px-4 py-5 z-50 flex w-full max-w-[700px] min-w-[350px] shadow-classic rounded-[6px]"
+              data-menu-container
+            >
+              <ul class="w-full space-y-1" id="categories">
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Residential"
+                >
+                  <a href="">Residential</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Residential.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Commercial HVAC"
+                >
+                  <a href="">Commercial HVAC</a>
+                  <img class="w-7 h-7" src="/assets/header/HVAC.png" alt="" />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Customized Systems"
+                >
+                  <a href="">Customized Systems</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Customized-Systems.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Fire Pumps"
+                >
+                  <a href="">Fire Pumps</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Fire-Pumps.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Industrial"
+                >
+                  <a href="">Industrial</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Industrial.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Municipal"
+                >
+                  <a href="">Municipal</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Municipal.png"
+                    alt=""
+                  />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Wastewater Sewage"
+                >
+                  <a href="">Wastewater Sewage</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Wastewater-Sewage.png"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- COMPANY -->
+          <div class="relative group" data-menu="Company">
+            <button class="cursor-pointer">Company</button>
+            <div
+              class="submenu absolute left-1/2 -translate-x-1/2 flex top-full left-0 bg-white px-4 py-5 z-50 flex w-full max-w-[700px] min-w-[300px] shadow-classic rounded-[6px]"
+              data-menu-container
+            >
+              <ul class="space-y-2 text-sm w-full" id="categories">
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="About Us"
+                >
+                  <a href="">About Us</a>
+                  <img class="w-7 h-7" src="/assets/header/about.png" alt="" />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="News"
+                >
+                  <a href="">News</a>
+                  <img class="w-7 h-7" src="/assets/header/news.png" alt="" />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Search"
+                >
+                  <a href="">Search</a>
+                  <img class="w-7 h-7" src="/assets/header/Search.png" alt="" />
+                </li>
+                <li
+                  class="flex gap-3 group justify-between pl-4 pr-4 py-3 bg-gray-50 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  data-sub="Useful Articles"
+                >
+                  <a href="">Useful Articles</a>
+                  <img
+                    class="w-7 h-7"
+                    src="/assets/header/Useful-Articles.png"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <!-- { BUTTON } -->
+        <div class="flex gap-8">
+          <a
+            href=""
+            class="group w-max flex gap-[14px] px-[12px] py-[8px] md:px-[18px] md:py-[12px] rounded-[4px] bg-accent cursor-pointer transform transition-all hover:bg-hover"
+          >
+            <span class="text-white whitespace-nowrap uppercase !text-[14px]"
+              >Contact us</span
+            >
+          </a>
+          <div class="lg:hidden flex z-[1001]">
+            <button id="mobile-toggle">
+              <div id="nav-icon4">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sidebar menu -->
+        <!-- Мобильное меню (перекрытие экрана) -->
+        <div
+          id="mobile-menu-overlay"
+          class="mobile-menu-overlay fixed inset-0 bg-white z-[999] transition-transform duration-300 -translate-y-full flex flex-col h-screen"
+        >
+          <div class="flex justify-between items-center p-4 md:px-10 border-b">
+            <a href="/">
+              <img src="/assets/header/logo.png" class="h-10 mr-3" alt="Logo"
+            /></a>
+          </div>
+
+          <nav class="flex-1 overflow-y-auto">
+            <ul
+              class="flex flex-col px-4 md:px-10 py-6 space-y-4 text-base font-medium text-gray-900"
+            >
+              <!-- PRODUCTS -->
+              <li class="border-b border-gray-300 pb-4 font-medium">
+                <button
+                  class="flex justify-between w-full items-center"
+                  data-toggle="products"
+                >
+                  Products
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-icon
+                  >
+                    <path
+                      d="M5.25 8.625L12 15.375L18.75 8.625"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  class="transition-submenu space-y-5"
+                  data-submenu="products"
+                >
+                  <a
+                    href="#"
+                    class="flex font-medium gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  >
+                    All products
+                  </a>
+                  <ul class="space-y-2">
+                    <!-- AIR COPMRESSOR -->
+                    <li>
+                      <p
+                        class="flex justify-between w-full items-center !text-[16px] !text-gray-600 font-medium"
+                        data-inner-toggle="air"
+                      >
+                        Air Compressor
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-icon
+                        >
+                          <path
+                            d="M5.25 8.625L12 15.375L18.75 8.625"
+                            stroke="black"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <ul
+                        class="my-3 space-y-2 font-medium transition-submenu"
+                        data-inner-submenu="air"
+                      >
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Air Dryers</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Oil-less Compressors</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Piston Compressors</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Rotary Screw Compressors</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Rotary Vane Compressors</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">All Air Compressors</a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- ELECTRIC MOTORS -->
+                    <li>
+                      <p
+                        class="flex justify-between w-full items-center !text-[16px] !text-gray-600 font-[500]"
+                        data-inner-toggle="motors"
+                      >
+                        Electric Motors
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-icon
+                        >
+                          <path
+                            d="M5.25 8.625L12 15.375L18.75 8.625"
+                            stroke="black"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <ul
+                        class="my-3 space-y-2 font-medium transition-submenu"
+                        data-inner-submenu="motors"
+                      >
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">General Purpose</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">HVAC Motorss</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Explosion Proof</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">All Electric Motors</a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- PUMPS -->
+                    <li>
+                      <p
+                        class="flex justify-between w-full items-center !text-[16px] !text-gray-600 font-[500]"
+                        data-inner-toggle="pumps"
+                      >
+                        Pumps
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-icon
+                        >
+                          <path
+                            d="M5.25 8.625L12 15.375L18.75 8.625"
+                            stroke="black"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <ul
+                        class="my-3 space-y-2 font-medium transition-submenu"
+                        data-inner-submenu="pumps"
+                      >
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">AODD Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Piston / Plunger Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Gear/ Lobe Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Dosing / Metering Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Progressing Cavity Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block"
+                            >Regenerative Turbine Pumps</a
+                          >
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Flexible Impeller Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Sliding Vane Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Screw Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Magnetic Drive Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">All Pumps</a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- CENTRIFUGAL -->
+                    <li>
+                      <p
+                        class="flex justify-between w-full items-center !text-[16px] !text-gray-600 font-[500]"
+                        data-inner-toggle="centrifugal"
+                      >
+                        Centrifugal
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-icon
+                        >
+                          <path
+                            d="M5.25 8.625L12 15.375L18.75 8.625"
+                            stroke="black"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <ul
+                        class="my-3 space-y-2 font-medium transition-submenu"
+                        data-inner-submenu="centrifugal"
+                      >
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">End-Suction</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">In-Line</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Horizontal Multistage</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Vertical Multistage</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Self-Priming</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Submersible</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">All Centrifugal</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Brands -->
+              <li class="border-b border-gray-300 pb-4 font-medium">
+                <button
+                  class="flex justify-between w-full items-center"
+                  data-toggle="brands"
+                >
+                  Brands
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-icon
+                  >
+                    <path
+                      d="M5.25 8.625L12 15.375L18.75 8.625"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div class="transition-submenu space-y-5" data-submenu="brands">
+                  <a
+                    href="#"
+                    class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                  >
+                    All Brands
+                  </a>
+                  <ul class="space-y-2">
+                    <!-- PUMP BRANDS -->
+                    <li>
+                      <p
+                        class="flex justify-between w-full items-center !text-[16px] !text-gray-600 font-[500]"
+                        data-inner-toggle="pumps pumps"
+                      >
+                        Pump Brands
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-icon
+                        >
+                          <path
+                            d="M5.25 8.625L12 15.375L18.75 8.625"
+                            stroke="black"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <ul
+                        class="my-3 space-y-2 font-medium transition-submenu"
+                        data-inner-submenu="pumps pumps"
+                      >
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Barnes Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Bell and Gossett Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Bowie Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Burks Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Grundfos Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Gusher Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Taco Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Travaini Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Weinman Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Yamada Pumps</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Other Pump Brands</a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Electric Motors Brands -->
+                    <li>
+                      <p
+                        class="flex justify-between w-full items-center !text-[16px] !text-gray-600 font-[500]"
+                        data-inner-toggle="motors pumps"
+                      >
+                        Electric Motors Brands
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-icon
+                        >
+                          <path
+                            d="M5.25 8.625L12 15.375L18.75 8.625"
+                            stroke="black"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <ul
+                        class="my-3 space-y-2 font-medium transition-submenu"
+                        data-inner-submenu="motors pumps"
+                      >
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Baldor Electric Motors</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">WEG</a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- PUMPS -->
+                    <li>
+                      <p
+                        class="flex justify-between w-full items-center !text-[16px] !text-gray-600 font-[500]"
+                        data-inner-toggle="air pumps"
+                      >
+                        Air Compressors Brands
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-icon
+                        >
+                          <path
+                            d="M5.25 8.625L12 15.375L18.75 8.625"
+                            stroke="black"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <ul
+                        class="my-3 space-y-2 font-medium transition-submenu"
+                        data-inner-submenu="air pumps"
+                      >
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Champion</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block">Hertz</a>
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block"
+                            >Saylor Beall Air Compressors</a
+                          >
+                        </li>
+                        <li
+                          class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                        >
+                          <a href="#" class="block"
+                            >Other Air Compressor Brands</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Industries -->
+              <li class="border-b border-gray-300 pb-4 font-medium">
+                <button
+                  class="flex justify-between w-full items-center"
+                  data-toggle="industries"
+                >
+                  Industries
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-icon
+                  >
+                    <path
+                      d="M5.25 8.625L12 15.375L18.75 8.625"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  class="transition-submenu space-y-5"
+                  data-submenu="industries"
+                >
+                  <ul class="mb-3 space-y-2 font-medium">
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Residential</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Commercial HVAC</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Customized Systems</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Fire Pumps</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Industrial</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Municipal</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Wastewater Sewage</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Maintenance & Repair -->
+              <li class="border-b border-gray-300 pb-4 font-medium">
+                <button
+                  class="flex justify-between w-full items-center"
+                  data-toggle="maintenance"
+                >
+                  Maintenance & Repair
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-icon
+                  >
+                    <path
+                      d="M5.25 8.625L12 15.375L18.75 8.625"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  class="transition-submenu space-y-5"
+                  data-submenu="maintenance"
+                >
+                  <ul class="mb-3 space-y-2 font-medium">
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">General Pump Repair </a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Sewage Ejector Pump Service </a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block"
+                        >Sewage Grinder Pump Maintenance</a
+                      >
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Sewage Grinder Pump Repairs</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Lift Station Maintenance</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Lift Station Repair </a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Lift Station Services </a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Lift Station Installation </a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block"
+                        >Circulator Pump Repair & Service</a
+                      >
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block"
+                        >Air Compressor Service & Repair
+                      </a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block"
+                        >Pump Preventative Maintenance
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- COMPANY -->
+              <li class="border-b border-gray-300 pb-4 font-medium">
+                <button
+                  class="flex justify-between w-full items-center"
+                  data-toggle="company"
+                >
+                  Company
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-icon
+                  >
+                    <path
+                      d="M5.25 8.625L12 15.375L18.75 8.625"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  class="transition-submenu space-y-5"
+                  data-submenu="company"
+                >
+                  <ul class="mb-3 space-y-2 font-medium">
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">About Us</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">News</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Search</a>
+                    </li>
+                    <li
+                      class="flex gap-2 group px-5 py-3 bg-gray-100 focus:bg-gray-200 active:bg-gray-200 text-black rounded-[6px] items-center transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      <a href="#" class="block">Useful Articles</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- { HERO BLOCK } -->
+    <section class="w-full flex flex-col-reverse border-b-1 border-accent">
+      <!-- { TEXT } -->
+      <div
+        class="w-full px-[16px] md:px-[40px] my-[20px] lg:px-0 lg:my-[48px] lg:pl-[40px]"
+      >
+        <h1
+          class="text-[32px] md:text-[42px] font-[400] leading-[40px] md:leading-[52px] text-black"
+        >
+          Blog
+        </h1>
+      </div>
+      <!-- { IMAGE } -->
+      <div class="w-full h-[200px] md:h-[400px] relative">
+        <img
+          src="/assets/image/hero.png"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+    </section>
+
+    <!-- { Breadcrumb BLOCK } -->
+    <section
+      class="w-full flex px-[16px] gap-[10px] md:px-[40px] py-[22px] bg-light-gray"
+    >
+      <span class="flex items-center gap-[10px]"
+        ><a
+          href=""
+          class="hover:text-accent transform transition-all !text-[16px]"
+          >Home</a
+        ><svg
+          width="6"
+          height="12"
+          viewBox="0 0 6 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.85811 6.06476C3.33293 7.67135 1.84223 9.23895 0.386022 10.7676C0.309799 10.8517 0.267291 10.9634 0.267291 11.0795C0.267291 11.1956 0.309799 11.3073 0.386022 11.3914C0.592252 11.6324 0.918507 11.6115 1.06705 11.4471C2.57631 9.85819 4.1552 8.19752 5.80372 6.46513C5.93457 6.35233 6 6.21911 6 6.06546C6 5.91181 5.93457 5.77441 5.80372 5.65325L0.841585 0.566104C0.746324 0.474326 0.620772 0.425107 0.491539 0.428877C0.362306 0.432646 0.239549 0.489109 0.149287 0.586297C-0.08811 0.836267 0.0034008 1.08276 0.110826 1.19973C1.69574 2.8192 3.27839 4.44111 4.85877 6.06546"
+            fill="#1B1F3A"
+            fill-opacity="0.85"
+          />
+        </svg>
+      </span>
+      <span class="flex items-center gap-[10px]"
+        ><a
+          href=""
+          class="hover:text-accent transform transition-all !text-[16px]"
+          >Blog</a
+        >
+      </span>
+    </section>
+
+    <section class="py-[100px] px-4 md:px-10 max-w-[1920px] mx-auto">
+      <!-- SEARCH -->
+      <div class="mb-10">
+        <div class="flex w-full md:w-[567px]">
+          <!-- INPUT -->
+          <input
+            type="text"
+            placeholder="For example: Pumps Repair..."
+            class="flex-1 rounded-md border border-gray-500 px-4 py-3 text-gray-700 placeholder-gray focus:outline-none focus:ring-2 t"
+          />
+
+          <!-- BUTTON -->
+          <button
+            class="ml-2 rounded-md bg-accent px-6 py-4 text-white uppercase hover:bg-red-700 transition"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.146 15.3707 4.888 14.112C3.63 12.8533 3.00067 11.316 3 9.5C2.99933 7.684 3.62867 6.14667 4.888 4.888C6.14733 3.62933 7.68467 3 9.5 3C11.3153 3 12.853 3.62933 14.113 4.888C15.373 6.14667 16.002 7.684 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8127 13.5627 12.688 12.688C13.5633 11.8133 14.0007 10.7507 14 9.5C13.9993 8.24933 13.562 7.187 12.688 6.313C11.814 5.439 10.7513 5.00133 9.5 5C8.24867 4.99867 7.18633 5.43633 6.313 6.313C5.43967 7.18967 5.002 8.252 5 9.5C4.998 10.748 5.43567 11.8107 6.313 12.688C7.19033 13.5653 8.25267 14.0027 9.5 14Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="grid gap-[30px] grid-cols-1 md:grid-cols-2 2xl:grid-cols-3">
+        <!-- CARD-->
+        <a class="cursor-pointer group block">
+          <!-- IMAGE -->
+          <img
+            class="w-full h-[280px] object-cover transition"
+            src="/assets/image/cta.png"
+            alt=""
+          />
+
+          <div class="border-x border-gray border-b p-6 mt">
+            <!-- TEXT -->
+            <div class="space-y-4">
+              <h4 class="group-hover:text-gray transition">
+                The Role of Electric Motors in Pump Systems
+              </h4>
+              <p class="line-clamp-3 text-gray">
+                When it comes to keeping pump systems running smoothly, electric
+                motors are the heart of the operation. These essential
+                components driv...When it comes to keeping pump systems running
+                smoothly, electric motors are the heart of the operation. These
+                essential components driv...
+              </p>
+
+              <!--FOLDER-->
+              <div class="flex gap-2.5">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:fill-accent transition"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 1.5C3.46957 1.5 2.96086 1.71071 2.58579 2.08579C2.21071 2.46086 2 2.96957 2 3.5V4.5C2 4.55733 2.00233 4.61333 2.007 4.668C1.42021 4.87383 0.911887 5.25691 0.552334 5.76427C0.192781 6.27162 -0.000229392 6.87816 2.04601e-07 7.5V19.5C2.04601e-07 20.2956 0.316071 21.0587 0.87868 21.6213C1.44129 22.1839 2.20435 22.5 3 22.5H21C21.7956 22.5 22.5587 22.1839 23.1213 21.6213C23.6839 21.0587 24 20.2956 24 19.5V7.5C24 6.70435 23.6839 5.94129 23.1213 5.37868C22.5587 4.81607 21.7956 4.5 21 4.5H11.874C11.6523 3.64121 11.1514 2.88047 10.4501 2.33741C9.74883 1.79435 8.88696 1.49977 8 1.5H4ZM9.732 4.5C9.55647 4.19597 9.304 3.9435 8.99997 3.76796C8.69594 3.59243 8.35106 3.50001 8 3.5H4V4.5H9.732ZM3 6.5C2.73478 6.5 2.48043 6.60536 2.29289 6.79289C2.10536 6.98043 2 7.23478 2 7.5V19.5C2 19.7652 2.10536 20.0196 2.29289 20.2071C2.48043 20.3946 2.73478 20.5 3 20.5H21C21.2652 20.5 21.5196 20.3946 21.7071 20.2071C21.8946 20.0196 22 19.7652 22 19.5V7.5C22 7.23478 21.8946 6.98043 21.7071 6.79289C21.5196 6.60536 21.2652 6.5 21 6.5H3Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+                <p>News</p>
+              </div>
+            </div>
+
+            <!-- BUTTON + DATE-->
+            <div class="w-full flex justify-between mt-10 md:mt-16">
+              <span class="flex items-center gap-2.5 text-accent uppercase">
+                read more
+                <svg
+                  width="24"
+                  height="22"
+                  viewBox="0 0 24 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:translate-x-2 transition"
+                >
+                  <path
+                    d="M20.8131 11.4505L14.4502 17.8134C14.3307 17.9329 14.1686 18 13.9997 18C13.8307 18 13.6687 17.9329 13.5492 17.8134C13.4297 17.6939 13.3626 17.5319 13.3626 17.3629C13.3626 17.1939 13.4297 17.0319 13.5492 16.9124L18.8266 11.6363H5.0916C4.92284 11.6363 4.761 11.5693 4.64167 11.4499C4.52235 11.3306 4.45531 11.1688 4.45531 11C4.45531 10.8312 4.52235 10.6694 4.64167 10.5501C4.761 10.4307 4.92284 10.3637 5.0916 10.3637H18.8266L13.5492 5.08759C13.4297 4.96811 13.3626 4.80606 13.3626 4.63709C13.3626 4.46813 13.4297 4.30608 13.5492 4.1866C13.6687 4.06712 13.8307 4 13.9997 4C14.1686 4 14.3307 4.06712 14.4502 4.1866L20.8131 10.5495C20.8723 10.6086 20.9193 10.6788 20.9514 10.7561C20.9835 10.8334 21 10.9163 21 11C21 11.0837 20.9835 11.1666 20.9514 11.2439C20.9193 11.3212 20.8723 11.3914 20.8131 11.4505Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+              </span>
+              <p class="text-gray text-sm">01.03.2025</p>
+            </div>
+          </div>
+        </a>
+        <a class="cursor-pointer group block">
+          <!-- IMAGE -->
+          <img
+            class="w-full h-[280px] object-cover transition"
+            src="/assets/image/cta.png"
+            alt=""
+          />
+
+          <div class="border-x border-gray border-b p-6 mt">
+            <!-- TEXT -->
+            <div class="space-y-4">
+              <h4 class="group-hover:text-gray transition">
+                The Role of Electric Motors in Pump Systems
+              </h4>
+              <p class="line-clamp-3 text-gray">
+                When it comes to keeping pump systems running smoothly, electric
+                motors are the heart of the operation. These essential
+                components driv...When it comes to keeping pump systems running
+                smoothly, electric motors are the heart of the operation. These
+                essential components driv...
+              </p>
+
+              <!--FOLDER-->
+              <div class="flex gap-2.5">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:fill-accent transition"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 1.5C3.46957 1.5 2.96086 1.71071 2.58579 2.08579C2.21071 2.46086 2 2.96957 2 3.5V4.5C2 4.55733 2.00233 4.61333 2.007 4.668C1.42021 4.87383 0.911887 5.25691 0.552334 5.76427C0.192781 6.27162 -0.000229392 6.87816 2.04601e-07 7.5V19.5C2.04601e-07 20.2956 0.316071 21.0587 0.87868 21.6213C1.44129 22.1839 2.20435 22.5 3 22.5H21C21.7956 22.5 22.5587 22.1839 23.1213 21.6213C23.6839 21.0587 24 20.2956 24 19.5V7.5C24 6.70435 23.6839 5.94129 23.1213 5.37868C22.5587 4.81607 21.7956 4.5 21 4.5H11.874C11.6523 3.64121 11.1514 2.88047 10.4501 2.33741C9.74883 1.79435 8.88696 1.49977 8 1.5H4ZM9.732 4.5C9.55647 4.19597 9.304 3.9435 8.99997 3.76796C8.69594 3.59243 8.35106 3.50001 8 3.5H4V4.5H9.732ZM3 6.5C2.73478 6.5 2.48043 6.60536 2.29289 6.79289C2.10536 6.98043 2 7.23478 2 7.5V19.5C2 19.7652 2.10536 20.0196 2.29289 20.2071C2.48043 20.3946 2.73478 20.5 3 20.5H21C21.2652 20.5 21.5196 20.3946 21.7071 20.2071C21.8946 20.0196 22 19.7652 22 19.5V7.5C22 7.23478 21.8946 6.98043 21.7071 6.79289C21.5196 6.60536 21.2652 6.5 21 6.5H3Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+                <p>News</p>
+              </div>
+            </div>
+
+            <!-- BUTTON + DATE-->
+            <div class="w-full flex justify-between mt-10 md:mt-16">
+              <span class="flex items-center gap-2.5 text-accent uppercase">
+                read more
+                <svg
+                  width="24"
+                  height="22"
+                  viewBox="0 0 24 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:translate-x-2 transition"
+                >
+                  <path
+                    d="M20.8131 11.4505L14.4502 17.8134C14.3307 17.9329 14.1686 18 13.9997 18C13.8307 18 13.6687 17.9329 13.5492 17.8134C13.4297 17.6939 13.3626 17.5319 13.3626 17.3629C13.3626 17.1939 13.4297 17.0319 13.5492 16.9124L18.8266 11.6363H5.0916C4.92284 11.6363 4.761 11.5693 4.64167 11.4499C4.52235 11.3306 4.45531 11.1688 4.45531 11C4.45531 10.8312 4.52235 10.6694 4.64167 10.5501C4.761 10.4307 4.92284 10.3637 5.0916 10.3637H18.8266L13.5492 5.08759C13.4297 4.96811 13.3626 4.80606 13.3626 4.63709C13.3626 4.46813 13.4297 4.30608 13.5492 4.1866C13.6687 4.06712 13.8307 4 13.9997 4C14.1686 4 14.3307 4.06712 14.4502 4.1866L20.8131 10.5495C20.8723 10.6086 20.9193 10.6788 20.9514 10.7561C20.9835 10.8334 21 10.9163 21 11C21 11.0837 20.9835 11.1666 20.9514 11.2439C20.9193 11.3212 20.8723 11.3914 20.8131 11.4505Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+              </span>
+              <p class="text-gray text-sm">01.03.2025</p>
+            </div>
+          </div>
+        </a>
+        <a class="cursor-pointer group block">
+          <!-- IMAGE -->
+          <img
+            class="w-full h-[280px] object-cover transition"
+            src="/assets/image/cta.png"
+            alt=""
+          />
+
+          <div class="border-x border-gray border-b p-6 mt">
+            <!-- TEXT -->
+            <div class="space-y-4">
+              <h4 class="group-hover:text-gray transition">
+                The Role of Electric Motors in Pump Systems
+              </h4>
+              <p class="line-clamp-3 text-gray">
+                When it comes to keeping pump systems running smoothly, electric
+                motors are the heart of the operation. These essential
+                components driv...When it comes to keeping pump systems running
+                smoothly, electric motors are the heart of the operation. These
+                essential components driv...
+              </p>
+
+              <!--FOLDER-->
+              <div class="flex gap-2.5">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:fill-accent transition"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 1.5C3.46957 1.5 2.96086 1.71071 2.58579 2.08579C2.21071 2.46086 2 2.96957 2 3.5V4.5C2 4.55733 2.00233 4.61333 2.007 4.668C1.42021 4.87383 0.911887 5.25691 0.552334 5.76427C0.192781 6.27162 -0.000229392 6.87816 2.04601e-07 7.5V19.5C2.04601e-07 20.2956 0.316071 21.0587 0.87868 21.6213C1.44129 22.1839 2.20435 22.5 3 22.5H21C21.7956 22.5 22.5587 22.1839 23.1213 21.6213C23.6839 21.0587 24 20.2956 24 19.5V7.5C24 6.70435 23.6839 5.94129 23.1213 5.37868C22.5587 4.81607 21.7956 4.5 21 4.5H11.874C11.6523 3.64121 11.1514 2.88047 10.4501 2.33741C9.74883 1.79435 8.88696 1.49977 8 1.5H4ZM9.732 4.5C9.55647 4.19597 9.304 3.9435 8.99997 3.76796C8.69594 3.59243 8.35106 3.50001 8 3.5H4V4.5H9.732ZM3 6.5C2.73478 6.5 2.48043 6.60536 2.29289 6.79289C2.10536 6.98043 2 7.23478 2 7.5V19.5C2 19.7652 2.10536 20.0196 2.29289 20.2071C2.48043 20.3946 2.73478 20.5 3 20.5H21C21.2652 20.5 21.5196 20.3946 21.7071 20.2071C21.8946 20.0196 22 19.7652 22 19.5V7.5C22 7.23478 21.8946 6.98043 21.7071 6.79289C21.5196 6.60536 21.2652 6.5 21 6.5H3Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+                <p>News</p>
+              </div>
+            </div>
+
+            <!-- BUTTON + DATE-->
+            <div class="w-full flex justify-between mt-10 md:mt-16">
+              <span class="flex items-center gap-2.5 text-accent uppercase">
+                read more
+                <svg
+                  width="24"
+                  height="22"
+                  viewBox="0 0 24 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:translate-x-2 transition"
+                >
+                  <path
+                    d="M20.8131 11.4505L14.4502 17.8134C14.3307 17.9329 14.1686 18 13.9997 18C13.8307 18 13.6687 17.9329 13.5492 17.8134C13.4297 17.6939 13.3626 17.5319 13.3626 17.3629C13.3626 17.1939 13.4297 17.0319 13.5492 16.9124L18.8266 11.6363H5.0916C4.92284 11.6363 4.761 11.5693 4.64167 11.4499C4.52235 11.3306 4.45531 11.1688 4.45531 11C4.45531 10.8312 4.52235 10.6694 4.64167 10.5501C4.761 10.4307 4.92284 10.3637 5.0916 10.3637H18.8266L13.5492 5.08759C13.4297 4.96811 13.3626 4.80606 13.3626 4.63709C13.3626 4.46813 13.4297 4.30608 13.5492 4.1866C13.6687 4.06712 13.8307 4 13.9997 4C14.1686 4 14.3307 4.06712 14.4502 4.1866L20.8131 10.5495C20.8723 10.6086 20.9193 10.6788 20.9514 10.7561C20.9835 10.8334 21 10.9163 21 11C21 11.0837 20.9835 11.1666 20.9514 11.2439C20.9193 11.3212 20.8723 11.3914 20.8131 11.4505Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+              </span>
+              <p class="text-gray text-sm">01.03.2025</p>
+            </div>
+          </div>
+        </a>
+        <a class="cursor-pointer group block">
+          <!-- IMAGE -->
+          <img
+            class="w-full h-[280px] object-cover transition"
+            src="/assets/image/cta.png"
+            alt=""
+          />
+
+          <div class="border-x border-gray border-b p-6 mt">
+            <!-- TEXT -->
+            <div class="space-y-4">
+              <h4 class="group-hover:text-gray transition">
+                The Role of Electric Motors in Pump Systems
+              </h4>
+              <p class="line-clamp-3 text-gray">
+                When it comes to keeping pump systems running smoothly, electric
+                motors are the heart of the operation. These essential
+                components driv...When it comes to keeping pump systems running
+                smoothly, electric motors are the heart of the operation. These
+                essential components driv...
+              </p>
+
+              <!--FOLDER-->
+              <div class="flex gap-2.5">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:fill-accent transition"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 1.5C3.46957 1.5 2.96086 1.71071 2.58579 2.08579C2.21071 2.46086 2 2.96957 2 3.5V4.5C2 4.55733 2.00233 4.61333 2.007 4.668C1.42021 4.87383 0.911887 5.25691 0.552334 5.76427C0.192781 6.27162 -0.000229392 6.87816 2.04601e-07 7.5V19.5C2.04601e-07 20.2956 0.316071 21.0587 0.87868 21.6213C1.44129 22.1839 2.20435 22.5 3 22.5H21C21.7956 22.5 22.5587 22.1839 23.1213 21.6213C23.6839 21.0587 24 20.2956 24 19.5V7.5C24 6.70435 23.6839 5.94129 23.1213 5.37868C22.5587 4.81607 21.7956 4.5 21 4.5H11.874C11.6523 3.64121 11.1514 2.88047 10.4501 2.33741C9.74883 1.79435 8.88696 1.49977 8 1.5H4ZM9.732 4.5C9.55647 4.19597 9.304 3.9435 8.99997 3.76796C8.69594 3.59243 8.35106 3.50001 8 3.5H4V4.5H9.732ZM3 6.5C2.73478 6.5 2.48043 6.60536 2.29289 6.79289C2.10536 6.98043 2 7.23478 2 7.5V19.5C2 19.7652 2.10536 20.0196 2.29289 20.2071C2.48043 20.3946 2.73478 20.5 3 20.5H21C21.2652 20.5 21.5196 20.3946 21.7071 20.2071C21.8946 20.0196 22 19.7652 22 19.5V7.5C22 7.23478 21.8946 6.98043 21.7071 6.79289C21.5196 6.60536 21.2652 6.5 21 6.5H3Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+                <p>News</p>
+              </div>
+            </div>
+
+            <!-- BUTTON + DATE-->
+            <div class="w-full flex justify-between mt-10 md:mt-16">
+              <span class="flex items-center gap-2.5 text-accent uppercase">
+                read more
+                <svg
+                  width="24"
+                  height="22"
+                  viewBox="0 0 24 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:translate-x-2 transition"
+                >
+                  <path
+                    d="M20.8131 11.4505L14.4502 17.8134C14.3307 17.9329 14.1686 18 13.9997 18C13.8307 18 13.6687 17.9329 13.5492 17.8134C13.4297 17.6939 13.3626 17.5319 13.3626 17.3629C13.3626 17.1939 13.4297 17.0319 13.5492 16.9124L18.8266 11.6363H5.0916C4.92284 11.6363 4.761 11.5693 4.64167 11.4499C4.52235 11.3306 4.45531 11.1688 4.45531 11C4.45531 10.8312 4.52235 10.6694 4.64167 10.5501C4.761 10.4307 4.92284 10.3637 5.0916 10.3637H18.8266L13.5492 5.08759C13.4297 4.96811 13.3626 4.80606 13.3626 4.63709C13.3626 4.46813 13.4297 4.30608 13.5492 4.1866C13.6687 4.06712 13.8307 4 13.9997 4C14.1686 4 14.3307 4.06712 14.4502 4.1866L20.8131 10.5495C20.8723 10.6086 20.9193 10.6788 20.9514 10.7561C20.9835 10.8334 21 10.9163 21 11C21 11.0837 20.9835 11.1666 20.9514 11.2439C20.9193 11.3212 20.8723 11.3914 20.8131 11.4505Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+              </span>
+              <p class="text-gray text-sm">01.03.2025</p>
+            </div>
+          </div>
+        </a>
+        <a class="cursor-pointer group block">
+          <!-- IMAGE -->
+          <img
+            class="w-full h-[280px] object-cover transition"
+            src="/assets/image/cta.png"
+            alt=""
+          />
+
+          <div class="border-x border-gray border-b p-6 mt">
+            <!-- TEXT -->
+            <div class="space-y-4">
+              <h4 class="group-hover:text-gray transition">
+                The Role of Electric Motors in Pump Systems
+              </h4>
+              <p class="line-clamp-3 text-gray">
+                When it comes to keeping pump systems running smoothly, electric
+                motors are the heart of the operation. These essential
+                components driv...When it comes to keeping pump systems running
+                smoothly, electric motors are the heart of the operation. These
+                essential components driv...
+              </p>
+
+              <!--FOLDER-->
+              <div class="flex gap-2.5">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:fill-accent transition"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 1.5C3.46957 1.5 2.96086 1.71071 2.58579 2.08579C2.21071 2.46086 2 2.96957 2 3.5V4.5C2 4.55733 2.00233 4.61333 2.007 4.668C1.42021 4.87383 0.911887 5.25691 0.552334 5.76427C0.192781 6.27162 -0.000229392 6.87816 2.04601e-07 7.5V19.5C2.04601e-07 20.2956 0.316071 21.0587 0.87868 21.6213C1.44129 22.1839 2.20435 22.5 3 22.5H21C21.7956 22.5 22.5587 22.1839 23.1213 21.6213C23.6839 21.0587 24 20.2956 24 19.5V7.5C24 6.70435 23.6839 5.94129 23.1213 5.37868C22.5587 4.81607 21.7956 4.5 21 4.5H11.874C11.6523 3.64121 11.1514 2.88047 10.4501 2.33741C9.74883 1.79435 8.88696 1.49977 8 1.5H4ZM9.732 4.5C9.55647 4.19597 9.304 3.9435 8.99997 3.76796C8.69594 3.59243 8.35106 3.50001 8 3.5H4V4.5H9.732ZM3 6.5C2.73478 6.5 2.48043 6.60536 2.29289 6.79289C2.10536 6.98043 2 7.23478 2 7.5V19.5C2 19.7652 2.10536 20.0196 2.29289 20.2071C2.48043 20.3946 2.73478 20.5 3 20.5H21C21.2652 20.5 21.5196 20.3946 21.7071 20.2071C21.8946 20.0196 22 19.7652 22 19.5V7.5C22 7.23478 21.8946 6.98043 21.7071 6.79289C21.5196 6.60536 21.2652 6.5 21 6.5H3Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+                <p>News</p>
+              </div>
+            </div>
+
+            <!-- BUTTON + DATE-->
+            <div class="w-full flex justify-between mt-10 md:mt-16">
+              <span class="flex items-center gap-2.5 text-accent uppercase">
+                read more
+                <svg
+                  width="24"
+                  height="22"
+                  viewBox="0 0 24 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:translate-x-2 transition"
+                >
+                  <path
+                    d="M20.8131 11.4505L14.4502 17.8134C14.3307 17.9329 14.1686 18 13.9997 18C13.8307 18 13.6687 17.9329 13.5492 17.8134C13.4297 17.6939 13.3626 17.5319 13.3626 17.3629C13.3626 17.1939 13.4297 17.0319 13.5492 16.9124L18.8266 11.6363H5.0916C4.92284 11.6363 4.761 11.5693 4.64167 11.4499C4.52235 11.3306 4.45531 11.1688 4.45531 11C4.45531 10.8312 4.52235 10.6694 4.64167 10.5501C4.761 10.4307 4.92284 10.3637 5.0916 10.3637H18.8266L13.5492 5.08759C13.4297 4.96811 13.3626 4.80606 13.3626 4.63709C13.3626 4.46813 13.4297 4.30608 13.5492 4.1866C13.6687 4.06712 13.8307 4 13.9997 4C14.1686 4 14.3307 4.06712 14.4502 4.1866L20.8131 10.5495C20.8723 10.6086 20.9193 10.6788 20.9514 10.7561C20.9835 10.8334 21 10.9163 21 11C21 11.0837 20.9835 11.1666 20.9514 11.2439C20.9193 11.3212 20.8723 11.3914 20.8131 11.4505Z"
+                    fill="#CE2926"
+                  />
+                </svg>
+              </span>
+              <p class="text-gray text-sm">01.03.2025</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- { CTA BLOCK } -->
+    <section
+      class="w-full flex items-center flex-col gap-[44px] py-[100px] md:py-[148px] px-[16px] md:px-[40px]"
+      style="
+        background-image: url(/assets/image/cta.png);
+        background-repeat: no-repeat;
+        object-fit: cover;
+        background-position: center;
+      "
+    >
+      <div class="space-y-[20px] md:space-y-[24px]">
+        <h2 class="text-center text-white">
+          Get in touch with our team to schedule a consultation or request a
+          quote.
+        </h2>
+        <p class="text-center text-white">
+          Looking for reliable industrial pump repair or emergency support?
+          Advanced Pump offers 24/7 service, diagnostics, and expert repair
+          across Massachusetts and New England. Get in touch today for system
+          consultation, rebuilds, or preventative maintenance plans.
+        </p>
+      </div>
+      <!-- { BUTTON } -->
+      <a
+        href=""
+        class="group w-max flex gap-[14px] py-[16px] pl-[24px] pr-[20px] rounded-[4px] bg-accent cursor-pointer transform transition-all hover:bg-hover"
+      >
+        <span class="text-white whitespace-nowrap uppercase">Contact us</span>
+        <span class="w-[22px] h-[24px] overflow-hidden">
+          <span
+            class="flex group-hover:-translate-x-[22px] transform transition-all"
+          >
+            <img
+              class="w-[22px] h-[24px]"
+              src="./assets/image/arrow.svg"
+              alt="icon"
+            />
+            <img
+              class="w-[22px] h-[24px]"
+              src="./assets/image/arrow.svg"
+              alt="icon"
+            />
+          </span>
+        </span>
+      </a>
+    </section>
+
+    <footer class="px-4 md:px-10 py-15 md:py-25 bg-white">
+      <div class="w-full space-y-6 md:space-y-10">
+        <!-- Верхняя часть с логотипом и описанием -->
+        <div class="flex flex-col items-start text-center space-y-6">
+          <img src="assets/header/logo.png" alt="Advanced Pump" class="h-16" />
+          <p class="max-w-2xl text-left text-gray-700">
+            Don and Norma Jackson founded Advanced Pump Company, Inc. in 1988.
+            Like many businesses, it started with an idea that came to life in
+            their garage.
+          </p>
+        </div>
+
+        <div class="w-full h-0.5 bg-accent"></div>
+        <!-- Нижняя часть с колонками -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-sm"
+        >
+          <div>
+            <h4 class="mb-3">Contact</h4>
+            <a href="#" class="group relative block mb-2 w-fit">
+              <p>50 HIGH STREET, REAR<br />WOBURN MA 01801</p>
+              <span
+                class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+              ></span>
+            </a>
+            <a href="#" class="group relative block mb-2 w-fit">
+              <p>(781) 932-3030</p>
+              <span
+                class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+              ></span>
+            </a>
+            <a href="#" class="group relative block w-fit">
+              <p>info@advancedpump.com</p>
+              <span
+                class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+              ></span>
+            </a>
+          </div>
+          <div>
+            <h4 class="mb-5">Company</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Home
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  About Us
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Blogs
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Contact us
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="mb-5">Products</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Air Compressor
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Electric Motors
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Pumps
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="mb-5">Brands</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Air Compressor
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Electric Motors
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Pumps
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="mb-5">Maintenance & Repair</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Pump Repair
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Sewage Ejectors
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Lift Stations
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Motor Repair
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group relative inline-block w-fit">
+                  Compressor Repair
+                  <span
+                    class="absolute bottom-0 left-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full origin-right"
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

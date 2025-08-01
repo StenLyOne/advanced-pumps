@@ -134,7 +134,7 @@ button {
 }
 
 .transition-submenu.open {
-  max-height: 1000px; 
+  max-height: 1000px;
   opacity: 1;
 }
 
@@ -146,7 +146,6 @@ button {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-
 }
 
 #nav-icon4 span {
