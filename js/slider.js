@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slider = container.querySelector(".slider-track");
     const prevBtn = container.querySelector(".slider-prev");
     const nextBtn = container.querySelector(".slider-next");
-    const cardWith = container.getElementsByTagName("a")[0].offsetWidth;
+    const cardWith = container.getElementsByTagName("a")[0].offsetWidth || 322
     if (!slider || !prevBtn || !nextBtn) return;
 
     prevBtn.addEventListener("click", () => {

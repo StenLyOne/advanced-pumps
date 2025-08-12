@@ -192,6 +192,48 @@ button {
   left: 4px;
 }
 
+.tab-panel {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.tab-panel.is-active {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+.tab-button {
+  cursor: pointer;
+}
+
+.tab-button .active-bar,
+.tab-button .active-number {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.tab-button[aria-selected="true"] .active-bar {
+  background: #b03a34;
+}
+.tab-button[aria-selected="false"] .active-bar {
+  background: #d1d5db;
+}
+.tab-button[aria-selected="true"] .active-number {
+  color: #b03a34;
+}
+.tab-button[aria-selected="false"] .active-number {
+  color: #d1d5db;
+}
+
+/* hover-эффект для неактивных */
+.tab-button[aria-selected="false"]:hover .active-bar {
+  background: #b03a34;
+}
+
 
 @media (max-width: 767px) {
   h1 {
